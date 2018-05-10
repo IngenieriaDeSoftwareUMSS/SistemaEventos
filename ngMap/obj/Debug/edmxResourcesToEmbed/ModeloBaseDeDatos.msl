@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities2">
+    <EntitySetMapping Name="CATEGORIA">
+      <EntityTypeMapping TypeName="Database1Model.CATEGORIA">
+        <MappingFragment StoreEntitySet="CATEGORIA">
+          <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+          <ScalarProperty Name="NOMBRE_CATEGORIA" ColumnName="NOMBRE_CATEGORIA" />
+          <ScalarProperty Name="COLOR_CATEGORIA" ColumnName="COLOR_CATEGORIA" />
+          <ScalarProperty Name="DESCRIPCION_CATEGORIA" ColumnName="DESCRIPCION_CATEGORIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EVENTO">
+      <EntityTypeMapping TypeName="Database1Model.EVENTO">
+        <MappingFragment StoreEntitySet="EVENTO">
+          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+          <ScalarProperty Name="NOMBRE_EVENTO" ColumnName="NOMBRE_EVENTO" />
+          <ScalarProperty Name="DESCRIPCION_EVENTO" ColumnName="DESCRIPCION_EVENTO" />
+          <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+          <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+          <ScalarProperty Name="DIRECCION_EVENTO" ColumnName="DIRECCION_EVENTO" />
+          <ScalarProperty Name="MAPA_LONGITUD" ColumnName="MAPA_LONGITUD" />
+          <ScalarProperty Name="MAPA_LATITUD" ColumnName="MAPA_LATITUD" />
+          <ScalarProperty Name="COSTO_EVENTO" ColumnName="COSTO_EVENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GALERIA">
+      <EntityTypeMapping TypeName="Database1Model.GALERIA">
+        <MappingFragment StoreEntitySet="GALERIA">
+          <ScalarProperty Name="ID_GALERIA" ColumnName="ID_GALERIA" />
+          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+          <ScalarProperty Name="IMAGEN_EVENTO" ColumnName="IMAGEN_EVENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Location">
+      <EntityTypeMapping TypeName="Database1Model.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Long" ColumnName="Long" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_EVENTO">
+      <EntityTypeMapping TypeName="Database1Model.USUARIO_EVENTO">
+        <MappingFragment StoreEntitySet="USUARIO_EVENTO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+          <ScalarProperty Name="CREADOR" ColumnName="CREADOR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO_REGISTRADO">
+      <EntityTypeMapping TypeName="Database1Model.USUARIO_REGISTRADO">
+        <MappingFragment StoreEntitySet="USUARIO_REGISTRADO">
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="MAIL_USUARIO" ColumnName="MAIL_USUARIO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+          <ScalarProperty Name="APELLIDO_USUARIO" ColumnName="APELLIDO_USUARIO" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="LISTA_AMIGOS" TypeName="Database1Model.LISTA_AMIGOS" StoreEntitySet="LISTA_AMIGOS">
+      <EndProperty Name="USUARIO_REGISTRADO">
+        <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+      </EndProperty>
+      <EndProperty Name="USUARIO_REGISTRADO1">
+        <ScalarProperty Name="ID_USUARIO" ColumnName="ID_AMIGO" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="LISTA_CATEGORIAS" TypeName="Database1Model.LISTA_CATEGORIAS" StoreEntitySet="LISTA_CATEGORIAS">
+      <EndProperty Name="EVENTO">
+        <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+      </EndProperty>
+      <EndProperty Name="CATEGORIA">
+        <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>
