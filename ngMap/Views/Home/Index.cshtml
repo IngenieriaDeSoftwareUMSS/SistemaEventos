@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<p><img src="http://www.aunclickcolombia.com/wp-content/uploads/2014/07/banner1-fondo.png" alt="" height="200" /></p>
+<p>Mapa de Eventos</p>
+<div ng-app="myApp" ng-controller="mapController">
+    <div class="locations">
+        <ul>
+            <li ng-repeat="l in locations" ng-click="ShowLocation(l.LocationID)">{{l.Title}}</li>
+        </ul>
+    </div>
+    <div class="maps">
+        <!-- Add directive code (gmap directive) for show map and markers-->
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+            <ui-gmap-marker ng-repeat="marker in markers" coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+                <ui-gmap-window options="windowOptions" show="windowOptions.show">
+                    <div style="max-width:200px">
+                        <div class="header"><strong>{{marker.title}}</strong></div>
+                        <div id="mapcontent">
+                            <p>
+                                <img ng-src="{{marker.image}}" style="width:200px; height:100px" />
+                                <div>{{marker.address}}</div>
+                            </p>
+                        </div>
+                    </div>
+                </ui-gmap-window>
+            </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+</div>
+
+@* Now here we need to some css and js *@
+<style>
+    .angular-google-map-container {
+        height:300px;        
+    }
+    .angular-google-map {  
+        width:80%;
+        height:100%;
+        margin:auto 0px; 
+    }
+    .locations {
+        width: 200px;
+        float: left;
+    }
+    .locations ul {
+        padding: 0px;
+        margin: 0px;
+        margin-right: 20px;
+    }
+    .locations ul li {
+        list-style-type: none;
+        padding: 5px;
+        border-bottom: 1px solid #f3f3f3;
+        cursor: pointer;
+    }
+</style>
+
+@section Scripts{
+    @* AngularJS library *@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
+
+    @* google map directive js *@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script> 
+    <script src="//rawgit.com/angular-ui/angular-google-maps/2.0.X/dist/angular-google-maps.js"></script>
+
+    @* here We will add our created js file *@
+    <script src="~/Scripts/ngMap.js"></script>
+}

@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_CATEGORIA" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COLOR_CATEGORIA" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DESCRIPCION_CATEGORIA" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_EVENTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPCION_EVENTO" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="datetime" Nullable="false" />
+          <Property Name="FECHA_FIN" Type="datetime" Nullable="false" />
+          <Property Name="DIRECCION_EVENTO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MAPA_LONGITUD" Type="float" Nullable="false" />
+          <Property Name="MAPA_LATITUD" Type="float" Nullable="false" />
+          <Property Name="COSTO_EVENTO" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GALERIA">
+          <Key>
+            <PropertyRef Name="ID_GALERIA" />
+          </Key>
+          <Property Name="ID_GALERIA" Type="int" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
+          <Property Name="IMAGEN_EVENTO" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LISTA_AMIGOS">
+          <Key>
+            <PropertyRef Name="ID_AMIGO" />
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_AMIGO" Type="int" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LISTA_CATEGORIAS">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
+          <Property Name="ID_CATEGORIA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="text" Nullable="false" />
+          <Property Name="Lat" Type="text" />
+          <Property Name="Long" Type="text" />
+          <Property Name="Address" Type="text" />
+          <Property Name="ImagePath" Type="text" />
+        </EntityType>
+        <EntityType Name="USUARIO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="int" Nullable="false" />
+          <Property Name="CREADOR" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO_REGISTRADO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="int" Nullable="false" />
+          <Property Name="MAIL_USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="APELLIDO_USUARIO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CATEGORIA_EVENTO">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="LISTA_CATEGORIAS" Type="Self.LISTA_CATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="LISTA_CATEGORIAS">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_CATEGORIA">
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="1" />
+          <End Role="LISTA_CATEGORIAS" Type="Self.LISTA_CATEGORIAS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CATEGORIA">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Principal>
+            <Dependent Role="LISTA_CATEGORIAS">
+              <PropertyRef Name="ID_CATEGORIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_USUARIO">
+          <End Role="USUARIO_REGISTRADO" Type="Self.USUARIO_REGISTRADO" Multiplicity="1" />
+          <End Role="USUARIO_EVENTO" Type="Self.USUARIO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO_REGISTRADO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="USUARIO_EVENTO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GALERIA_EVENTO">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="GALERIA" Type="Self.GALERIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="GALERIA">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LISTA_AMIGOS">
+          <End Role="USUARIO_REGISTRADO" Type="Self.USUARIO_REGISTRADO" Multiplicity="1" />
+          <End Role="LISTA_AMIGOS" Type="Self.LISTA_AMIGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO_REGISTRADO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="LISTA_AMIGOS">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LISTA_USUARIO_AMIGOS">
+          <End Role="USUARIO_REGISTRADO" Type="Self.USUARIO_REGISTRADO" Multiplicity="1" />
+          <End Role="LISTA_AMIGOS" Type="Self.LISTA_AMIGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO_REGISTRADO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="LISTA_AMIGOS">
+              <PropertyRef Name="ID_AMIGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_EVENTO">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="USUARIO_EVENTO" Type="Self.USUARIO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="USUARIO_EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GALERIA" EntityType="Self.GALERIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LISTA_AMIGOS" EntityType="Self.LISTA_AMIGOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LISTA_CATEGORIAS" EntityType="Self.LISTA_CATEGORIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO_EVENTO" EntityType="Self.USUARIO_EVENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO_REGISTRADO" EntityType="Self.USUARIO_REGISTRADO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CATEGORIA_EVENTO" Association="Self.FK_CATEGORIA_EVENTO">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="LISTA_CATEGORIAS" EntitySet="LISTA_CATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_CATEGORIA" Association="Self.FK_EVENTO_CATEGORIA">
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+            <End Role="LISTA_CATEGORIAS" EntitySet="LISTA_CATEGORIAS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_USUARIO" Association="Self.FK_EVENTO_USUARIO">
+            <End Role="USUARIO_REGISTRADO" EntitySet="USUARIO_REGISTRADO" />
+            <End Role="USUARIO_EVENTO" EntitySet="USUARIO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GALERIA_EVENTO" Association="Self.FK_GALERIA_EVENTO">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="GALERIA" EntitySet="GALERIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LISTA_AMIGOS" Association="Self.FK_LISTA_AMIGOS">
+            <End Role="USUARIO_REGISTRADO" EntitySet="USUARIO_REGISTRADO" />
+            <End Role="LISTA_AMIGOS" EntitySet="LISTA_AMIGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LISTA_USUARIO_AMIGOS" Association="Self.FK_LISTA_USUARIO_AMIGOS">
+            <End Role="USUARIO_REGISTRADO" EntitySet="USUARIO_REGISTRADO" />
+            <End Role="LISTA_AMIGOS" EntitySet="LISTA_AMIGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_EVENTO" Association="Self.FK_USUARIO_EVENTO">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="USUARIO_EVENTO" EntitySet="USUARIO_EVENTO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="ID_CATEGORIA" />
+          </Key>
+          <Property Name="ID_CATEGORIA" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_CATEGORIA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COLOR_CATEGORIA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION_CATEGORIA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.LISTA_CATEGORIAS" FromRole="CATEGORIA" ToRole="EVENTO" />
+        </EntityType>
+        <EntityType Name="EVENTO">
+          <Key>
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_EVENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPCION_EVENTO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_INICIO" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FECHA_FIN" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DIRECCION_EVENTO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAPA_LONGITUD" Type="Double" Nullable="false" />
+          <Property Name="MAPA_LATITUD" Type="Double" Nullable="false" />
+          <Property Name="COSTO_EVENTO" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="GALERIA" Relationship="Self.FK_GALERIA_EVENTO" FromRole="EVENTO" ToRole="GALERIA" />
+          <NavigationProperty Name="USUARIO_EVENTO" Relationship="Self.FK_USUARIO_EVENTO" FromRole="EVENTO" ToRole="USUARIO_EVENTO" />
+          <NavigationProperty Name="CATEGORIA" Relationship="Self.LISTA_CATEGORIAS" FromRole="EVENTO" ToRole="CATEGORIA" />
+        </EntityType>
+        <EntityType Name="GALERIA">
+          <Key>
+            <PropertyRef Name="ID_GALERIA" />
+          </Key>
+          <Property Name="ID_GALERIA" Type="Int32" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" />
+          <Property Name="IMAGEN_EVENTO" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.FK_GALERIA_EVENTO" FromRole="GALERIA" ToRole="EVENTO" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="LocationID" />
+          </Key>
+          <Property Name="LocationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Lat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Long" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="USUARIO_EVENTO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+            <PropertyRef Name="ID_EVENTO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="ID_EVENTO" Type="Int32" Nullable="false" />
+          <Property Name="CREADOR" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="EVENTO" Relationship="Self.FK_USUARIO_EVENTO" FromRole="USUARIO_EVENTO" ToRole="EVENTO" />
+          <NavigationProperty Name="USUARIO_REGISTRADO" Relationship="Self.FK_EVENTO_USUARIO" FromRole="USUARIO_EVENTO" ToRole="USUARIO_REGISTRADO" />
+        </EntityType>
+        <EntityType Name="USUARIO_REGISTRADO">
+          <Key>
+            <PropertyRef Name="ID_USUARIO" />
+          </Key>
+          <Property Name="ID_USUARIO" Type="Int32" Nullable="false" />
+          <Property Name="MAIL_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOMBRE_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="APELLIDO_USUARIO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_NACIMIENTO" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="USUARIO_EVENTO" Relationship="Self.FK_EVENTO_USUARIO" FromRole="USUARIO_REGISTRADO" ToRole="USUARIO_EVENTO" />
+          <NavigationProperty Name="USUARIO_REGISTRADO1" Relationship="Self.LISTA_AMIGOS" FromRole="USUARIO_REGISTRADO" ToRole="USUARIO_REGISTRADO1" />
+          <NavigationProperty Name="USUARIO_REGISTRADO2" Relationship="Self.LISTA_AMIGOS" FromRole="USUARIO_REGISTRADO1" ToRole="USUARIO_REGISTRADO" />
+        </EntityType>
+        <Association Name="FK_GALERIA_EVENTO">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="GALERIA" Type="Self.GALERIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="GALERIA">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIO_EVENTO">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="1" />
+          <End Role="USUARIO_EVENTO" Type="Self.USUARIO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Principal>
+            <Dependent Role="USUARIO_EVENTO">
+              <PropertyRef Name="ID_EVENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EVENTO_USUARIO">
+          <End Role="USUARIO_REGISTRADO" Type="Self.USUARIO_REGISTRADO" Multiplicity="1" />
+          <End Role="USUARIO_EVENTO" Type="Self.USUARIO_EVENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO_REGISTRADO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Principal>
+            <Dependent Role="USUARIO_EVENTO">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LISTA_AMIGOS">
+          <End Role="USUARIO_REGISTRADO" Type="Self.USUARIO_REGISTRADO" Multiplicity="*" />
+          <End Role="USUARIO_REGISTRADO1" Type="Self.USUARIO_REGISTRADO" Multiplicity="*" />
+        </Association>
+        <Association Name="LISTA_CATEGORIAS">
+          <End Role="EVENTO" Type="Self.EVENTO" Multiplicity="*" />
+          <End Role="CATEGORIA" Type="Self.CATEGORIA" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Database1Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" />
+          <EntitySet Name="EVENTO" EntityType="Self.EVENTO" />
+          <EntitySet Name="GALERIA" EntityType="Self.GALERIA" />
+          <EntitySet Name="Location" EntityType="Self.Location" />
+          <EntitySet Name="USUARIO_EVENTO" EntityType="Self.USUARIO_EVENTO" />
+          <EntitySet Name="USUARIO_REGISTRADO" EntityType="Self.USUARIO_REGISTRADO" />
+          <AssociationSet Name="FK_GALERIA_EVENTO" Association="Self.FK_GALERIA_EVENTO">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="GALERIA" EntitySet="GALERIA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIO_EVENTO" Association="Self.FK_USUARIO_EVENTO">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="USUARIO_EVENTO" EntitySet="USUARIO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EVENTO_USUARIO" Association="Self.FK_EVENTO_USUARIO">
+            <End Role="USUARIO_REGISTRADO" EntitySet="USUARIO_REGISTRADO" />
+            <End Role="USUARIO_EVENTO" EntitySet="USUARIO_EVENTO" />
+          </AssociationSet>
+          <AssociationSet Name="LISTA_AMIGOS" Association="Self.LISTA_AMIGOS">
+            <End Role="USUARIO_REGISTRADO" EntitySet="USUARIO_REGISTRADO" />
+            <End Role="USUARIO_REGISTRADO1" EntitySet="USUARIO_REGISTRADO" />
+          </AssociationSet>
+          <AssociationSet Name="LISTA_CATEGORIAS" Association="Self.LISTA_CATEGORIAS">
+            <End Role="EVENTO" EntitySet="EVENTO" />
+            <End Role="CATEGORIA" EntitySet="CATEGORIA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities2">
+          <EntitySetMapping Name="CATEGORIA">
+            <EntityTypeMapping TypeName="Database1Model.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+                <ScalarProperty Name="NOMBRE_CATEGORIA" ColumnName="NOMBRE_CATEGORIA" />
+                <ScalarProperty Name="COLOR_CATEGORIA" ColumnName="COLOR_CATEGORIA" />
+                <ScalarProperty Name="DESCRIPCION_CATEGORIA" ColumnName="DESCRIPCION_CATEGORIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EVENTO">
+            <EntityTypeMapping TypeName="Database1Model.EVENTO">
+              <MappingFragment StoreEntitySet="EVENTO">
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="NOMBRE_EVENTO" ColumnName="NOMBRE_EVENTO" />
+                <ScalarProperty Name="DESCRIPCION_EVENTO" ColumnName="DESCRIPCION_EVENTO" />
+                <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+                <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+                <ScalarProperty Name="DIRECCION_EVENTO" ColumnName="DIRECCION_EVENTO" />
+                <ScalarProperty Name="MAPA_LONGITUD" ColumnName="MAPA_LONGITUD" />
+                <ScalarProperty Name="MAPA_LATITUD" ColumnName="MAPA_LATITUD" />
+                <ScalarProperty Name="COSTO_EVENTO" ColumnName="COSTO_EVENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GALERIA">
+            <EntityTypeMapping TypeName="Database1Model.GALERIA">
+              <MappingFragment StoreEntitySet="GALERIA">
+                <ScalarProperty Name="ID_GALERIA" ColumnName="ID_GALERIA" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="IMAGEN_EVENTO" ColumnName="IMAGEN_EVENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Location">
+            <EntityTypeMapping TypeName="Database1Model.Location">
+              <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Long" ColumnName="Long" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_EVENTO">
+            <EntityTypeMapping TypeName="Database1Model.USUARIO_EVENTO">
+              <MappingFragment StoreEntitySet="USUARIO_EVENTO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+                <ScalarProperty Name="CREADOR" ColumnName="CREADOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO_REGISTRADO">
+            <EntityTypeMapping TypeName="Database1Model.USUARIO_REGISTRADO">
+              <MappingFragment StoreEntitySet="USUARIO_REGISTRADO">
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="MAIL_USUARIO" ColumnName="MAIL_USUARIO" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+                <ScalarProperty Name="NOMBRE_USUARIO" ColumnName="NOMBRE_USUARIO" />
+                <ScalarProperty Name="APELLIDO_USUARIO" ColumnName="APELLIDO_USUARIO" />
+                <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="LISTA_AMIGOS" TypeName="Database1Model.LISTA_AMIGOS" StoreEntitySet="LISTA_AMIGOS">
+            <EndProperty Name="USUARIO_REGISTRADO">
+              <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+            </EndProperty>
+            <EndProperty Name="USUARIO_REGISTRADO1">
+              <ScalarProperty Name="ID_USUARIO" ColumnName="ID_AMIGO" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="LISTA_CATEGORIAS" TypeName="Database1Model.LISTA_CATEGORIAS" StoreEntitySet="LISTA_CATEGORIAS">
+            <EndProperty Name="EVENTO">
+              <ScalarProperty Name="ID_EVENTO" ColumnName="ID_EVENTO" />
+            </EndProperty>
+            <EndProperty Name="CATEGORIA">
+              <ScalarProperty Name="ID_CATEGORIA" ColumnName="ID_CATEGORIA" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

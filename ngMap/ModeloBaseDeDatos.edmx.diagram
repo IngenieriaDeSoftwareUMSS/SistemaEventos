@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="325e9134c25942418cc8e6ecca6b72fe" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.CATEGORIA" Width="1.5" PointX="5.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.EVENTO" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.GALERIA" Width="1.5" PointX="4.375" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Location" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.USUARIO_EVENTO" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.USUARIO_REGISTRADO" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.FK_GALERIA_EVENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_USUARIO_EVENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.FK_EVENTO_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.LISTA_AMIGOS" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.LISTA_CATEGORIAS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
