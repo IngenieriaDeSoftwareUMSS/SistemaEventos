@@ -1,6 +1,8 @@
 <h1>{{ titulo }}</h1>
-<div *ngIf="coordinates">
-<agm-map [latitude]="lat" [longitude]="lng" >
-  
-</agm-map>
+<div *ngIf="eventos">
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker *ngFor="let evento of eventos" [latitude]="evento.lat" [longitude]="evento.long">
+            <agm-info-window> {{ evento.nombre }}</agm-info-window>
+        </agm-marker>
+    </agm-map>
 </div>
