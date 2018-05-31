@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27703.2018
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaEventosUMSS", "SistemaEventosUMSS.csproj", "{5089FDBD-14EF-40F6-AC82-A68A2A2BF0C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaEventosUMSS", "SistemaEventosUMSS.csproj", "{8A3266D4-5DEC-4CE9-AD9D-E8DFFF01C595}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5089FDBD-14EF-40F6-AC82-A68A2A2BF0C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5089FDBD-14EF-40F6-AC82-A68A2A2BF0C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5089FDBD-14EF-40F6-AC82-A68A2A2BF0C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5089FDBD-14EF-40F6-AC82-A68A2A2BF0C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3266D4-5DEC-4CE9-AD9D-E8DFFF01C595}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3266D4-5DEC-4CE9-AD9D-E8DFFF01C595}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3266D4-5DEC-4CE9-AD9D-E8DFFF01C595}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3266D4-5DEC-4CE9-AD9D-E8DFFF01C595}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1DAF2D66-B14E-4363-9C1F-32BD24E4D89A}
+		SolutionGuid = {464AC2E9-ABB8-4066-8FF6-E242CF606FBB}
 	EndGlobalSection
 EndGlobal
