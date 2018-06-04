@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { MapaComponent } from './componentes/mapa/mapa.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { RegistroComponent } from './componentes/usuario/registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MapaComponent
+    MapaComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
