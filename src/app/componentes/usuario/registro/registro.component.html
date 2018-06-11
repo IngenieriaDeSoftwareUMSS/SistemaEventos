@@ -3,7 +3,7 @@
   Registro
 </button>
 
-<!-- Button trigger modal  Evento-->
+<!-- Button trigger modal Evento-->
 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#evento">
   Evento
 </button>
@@ -36,8 +36,8 @@
                 <input type="text" class="form-control" id="inputNombre" placeholder="ingrese su nombre aqui!">
               </div>
               <div class="form-group">
-                <label for="inputApellido">Apellido</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese su apellido aqui!">
+                <label for="inputEvento">Apellido</label>
+                <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese su apellido aqui!">
               </div>
               <div class="form-group">
                 <label for="inputAño">Fecha de nacimiento</label>
@@ -90,7 +90,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ingrese datos de registro</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear nuevo Evento</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -100,49 +100,31 @@
           <form>
               
             <div class="form-group">
-              <label for="inputApellido">Nombre del Evento</label>
-              <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese nombre del Evento">
+              <label for="inputEvento">Nombre del Evento</label>
+              <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese nombre del Evento">
             </div>
              
               <div class="form-group">
-                <label for="inputApellido">Descripcion</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese descripcion del Evento">
+                <label for="inputDescripcion">Descripcion</label>
+                <input type="text" class="form-control" id="inputDescripcion" placeholder="Ingrese descripcion del Evento">
               </div>
 
-              <div class="form-group">
-                <label for="inputAño">Fecha del Evento</label>
-                <div class="form-row align-items-center">
-                    <div class="col-sm-3">
-                      <label class="mr-sm-2" for="inputDia">Dia</label>
-                      <input type="text" class="form-control" id="inputDia" placeholder="Dia">
-                    </div>
-                    <div class="col-sm-3">
-                        <label class="mr-sm-2" for="inlineFormCustomSelect">Mes</label>
-                        <select class="custom-select mr-sm-2" id="inputMes">
-                          <option value="1">Enero</option>
-                          <option value="2">Febrero</option>
-                          <option value="3">Marzo</option>
-                          <option value="4">Abril</option>
-                          <option value="5">Mayo</option>
-                          <option value="6">Junio</option>
-                          <option value="7">Julio</option>
-                          <option value="8">Agosto</option>
-                          <option value="9">Septiembre</option>
-                          <option value="10">Octubre</option>
-                          <option value="11">Noviembre</option>
-                          <option value="12">Diciembre</option>
-                        </select>
-                      </div>
-                      <div class="col-sm-3">
-                        <label class="mr-sm-2" for="inputAño">Año</label>
-                        <input type="text" class="form-control" id="inputAño" placeholder="Año">
-                      </div>
-                </div>   
-              </div>
+<!-- inicio fila calendario -->
+             <div class="form-row">
+                <div class="form-group col">
+                  <label for="inputInicio">Inicio</label>
+                  <input type="datetime-local" value="2018-06-19T08:00:00" id="inputInicio">
+                </div>
+                <div class="form-group col">
+                  <label for="inputFin">Fin</label>
+                  <input type="datetime-local" value="2018-06-19T08:00:00" id="inputFin">
+                </div>
+              </div>  
+<!-- fin fila calendario -->
 
               <div class="form-group">
-                <label for="inputApellido">Categoria</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese la categoria">
+                <label for="inputEvento">Categoria</label>
+                <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese la categoria">
               </div>
 
               <div class="custom-file">
@@ -151,13 +133,13 @@
               </div>  
 
               <div class="form-group">
-                <label for="inputApellido">Direccion</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese Direccion">
+                <label for="inputEvento">Direccion</label>
+                <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese Direccion">
               </div>
 
               <div class="form-group">
-                <label for="inputApellido">Costo</label>
-                <input type="text" class="form-control" id="inputApellido" placeholder="Ingrese el costo">
+                <label for="inputEvento">Costo</label>
+                <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese el costo">
               </div>
 
 
