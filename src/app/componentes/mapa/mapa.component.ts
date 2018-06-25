@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinates } from '../../modelos/mock-coordinates';
+import { Evento } from '../../modelos/evento';
+import { single } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mapa',
@@ -12,10 +14,13 @@ export class MapaComponent implements OnInit {
   titulo = 'Mapa de Eventos';
   lat = -17.391848;
   lng = -66.256003;
-
+  eventoActual = new Evento();
   constructor() { }
 
   ngOnInit() {
   }
-
+  modalEvento(evento: Evento) {
+    this.eventoActual.nombre = evento.nombre;
+    document.getElementById("openModalButton").click();
+  }
 }
