@@ -20,3 +20,14 @@ C:\Users\Bernardo\Desktop\SistemaEventosUMSS\SistemaEventosUMSS\obj\Debug\netcor
 C:\Users\Bernardo\Desktop\SistemaEventosUMSS\SistemaEventosUMSS\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfo.cs
 C:\Users\Bernardo\Desktop\SistemaEventosUMSS\SistemaEventosUMSS\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
 C:\Users\Bernardo\Desktop\SistemaEventosUMSS\SistemaEventosUMSS\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.csprojAssemblyReference.cache
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
+D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.deps.json
+D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.json
+D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.dev.json
+D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.csproj.CoreCompileInputs.cache
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfoInputs.cache
+D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfo.cs
