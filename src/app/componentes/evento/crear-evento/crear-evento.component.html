@@ -1,0 +1,69 @@
+<!-- Button trigger modal Evento-->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#evento">
+  Evento
+</button>
+<!-- Modal para evento -->
+
+<div class="modal fade" id="evento" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear nuevo Evento</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <form [formGroup]="frmGuardarEvento">
+
+          <div class="form-group">
+            <label for="inputEvento">Nombre del Evento</label>
+            <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese nombre del Evento" formControlName='nombreE'>
+          </div>
+
+          <div class="form-group">
+            <label for="inputDescripcion">Descripcion</label>
+            <input type="text" class="form-control" id="inputDescripcion" placeholder="Ingrese descripcion del Evento" formControlName='descripcionE'>
+          </div>
+          <!-- inicio fila calendario -->
+          <div class="form-row">
+            <div class="form-group col">
+              <label for="inputInicio">Inicio</label>
+              <input type="datetime-local" value="2018-06-19T08:00:00" id="inputInicio" formControlName='fechaInicio'>
+            </div>
+            <div class="form-group col">
+              <label for="inputFin">Fin</label>
+              <input type="datetime-local" value="2018-06-19T08:00:00" id="inputFin" formControlName='fechaFin'>
+            </div>
+          </div>
+          <!-- fin fila calendario -->
+          <div class="form-group">
+            <label for="inputEvento">Categoria</label>
+            <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese la categoria" formControlName='categoriaE'>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+            <label class="custom-file-label" for="customFileLang">Foto del evento</label>
+          </div>
+          <div class="form-group">
+            <label for="inputEvento">Direccion</label>
+            <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese Direccion" formControlName='direccionE'>
+          </div>
+          <div class="form-group">
+            <label for="inputEvento">Costo</label>
+            <input type="text" class="form-control" id="inputEvento" placeholder="Ingrese el costo" formControlName='costoE'>
+            
+          </div>
+          <div class="clearfix">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="guardarEvento()">Registrarse</button>
+          </div>
+          
+        </form>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
