@@ -20,7 +20,7 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
   }
   modalEvento(evento: Evento) {
-    this.eventoActual.nombre = evento.nombre;
+    this.eventoActual = evento;
     document.getElementById("openModalButton").click();
   }
 }
