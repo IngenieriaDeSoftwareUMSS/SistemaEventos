@@ -13256,11 +13256,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ProyectoIngSoft\\SistemaEventos\\SistemaEventosUMSS.csproj",
+      "projectUniqueName": "E:\\SistemaEventos-Gustavo-RV\\SistemaEventosUMSS.csproj",
       "projectName": "SistemaEventosUMSS",
-      "projectPath": "D:\\ProyectoIngSoft\\SistemaEventos\\SistemaEventosUMSS.csproj",
+      "projectPath": "E:\\SistemaEventos-Gustavo-RV\\SistemaEventosUMSS.csproj",
       "packagesPath": "C:\\Users\\E6330\\.nuget\\packages\\",
-      "outputPath": "D:\\ProyectoIngSoft\\SistemaEventos\\obj\\",
+      "outputPath": "E:\\SistemaEventos-Gustavo-RV\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

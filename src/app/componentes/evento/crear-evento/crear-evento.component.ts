@@ -13,13 +13,13 @@ export class CrearEventoComponent implements OnInit {
   frmGuardarEvento: FormGroup;
   constructor( private eventoSrv: EventoService, private fb: FormBuilder ) {
     this.frmGuardarEvento = this.fb.group({
-      'nombreE': ['', Validators.required],
-      'descripcionE': ['', Validators.required],
-      'direccionE': [''],
-      'fechaInicio': ['', Validators.required],
-      'fechaFin': ['', Validators.required],
-      'costoE': [''],
-      'categoriaE': ['']
+      'nombreE': ['Nombre', Validators.required],
+      'descripcionE': ['Descripción', Validators.required],
+      'direccionE': ['Dirección'],
+      'fechaInicio': ['2018-06-07T03:44:00-04:00', Validators.required],
+      'fechaFin': ['2018-06-07T03:44:00-04:00', Validators.required],
+      'costoE': ['0'],
+      'categoriaE': ['Categoría']
     });
     eventoSrv.getEventos().subscribe((data: any) => this.eventsData = data);
   }

@@ -31,3 +31,14 @@ D:\ProyectoIngSoft\SistemaEventos\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
 D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.csproj.CoreCompileInputs.cache
 D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfoInputs.cache
 D:\ProyectoIngSoft\SistemaEventos\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfo.cs
+E:\SistemaEventos-Gustavo-RV\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.deps.json
+E:\SistemaEventos-Gustavo-RV\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.json
+E:\SistemaEventos-Gustavo-RV\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.dev.json
+E:\SistemaEventos-Gustavo-RV\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+E:\SistemaEventos-Gustavo-RV\bin\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.csprojAssemblyReference.cache
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.csproj.CoreCompileInputs.cache
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfoInputs.cache
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfo.cs
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+E:\SistemaEventos-Gustavo-RV\obj\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
