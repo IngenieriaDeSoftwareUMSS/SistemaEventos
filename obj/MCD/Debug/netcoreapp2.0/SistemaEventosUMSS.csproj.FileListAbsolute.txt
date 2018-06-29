@@ -1,0 +1,11 @@
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\bin\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.deps.json
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\bin\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.json
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\bin\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.runtimeconfig.dev.json
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\bin\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\bin\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.csprojAssemblyReference.cache
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.csproj.CoreCompileInputs.cache
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfoInputs.cache
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.AssemblyInfo.cs
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.dll
+C:\Users\Guillermo\Documents\ANGULAR\SistemaEventos\obj\MCD\Debug\netcoreapp2.0\SistemaEventosUMSS.pdb

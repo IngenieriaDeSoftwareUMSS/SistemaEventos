@@ -7,11 +7,14 @@ import { MapaComponent } from './componentes/mapa/mapa.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { RegistroComponent } from './componentes/usuario/registro/registro.component';
+import { MostraComponent } from './componentes/usuario/mostra/mostra.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MapaComponent,
-    RegistroComponent
+    RegistroComponent,
+    MostraComponent
   ],
   imports: [
     BrowserModule,

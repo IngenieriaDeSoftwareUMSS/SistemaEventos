@@ -1,0 +1,24 @@
+<div>
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#mostra">
+  Lista de Registrados </button>
+  </div>
+   <div class="modal fade" id="mostra">
+    <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+       <div class="modal-header">
+          <h5 class="modal-title">Datos personales</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+       </div>
+       <div class="modal-body">
+
+              <li *ngFor="let muestra of usuarios">{{muestra}}</li>
+
+       </div>
+       <div class="model-foroter">
+         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+       </div>
+     </div>
+    </div>
+  </div>
